@@ -3,10 +3,10 @@ package com.example.dpbird.dpweather.db;
 import org.litepal.crud.DataSupport;
 
 /**
- * Created by dpBird on 2018/3/5.
+ * Created by dpBird on 2018/3/9.
  */
 
-public class county extends DataSupport{
+public class County extends DataSupport {
     private int id;
     private String countyName;
     private String weatherId;
