@@ -1,10 +1,13 @@
 package com.example.dpbird.dpweather.util;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.example.dpbird.dpweather.db.City;
 import com.example.dpbird.dpweather.db.County;
 import com.example.dpbird.dpweather.db.Province;
+import com.example.dpbird.dpweather.gson.Weather;
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -73,5 +76,17 @@ public class JsonUtils {
             }
         }
         return false;
+    }
+
+    public static Weather handleWeatherResponce(String responce) {
+        try {
+            JSONObject object = new JSONObject(responce);
+            JSONArray jsonArray = object.getJSONArray("HeWeather");
+            String weatherContent = jsonArray.getJSONObject(0).toString();
+            return new Gson().fromJson(weatherContent, Weather.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }
