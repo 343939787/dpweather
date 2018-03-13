@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="15dp"
     android:background="#8000">
 
     <TextView
@@ -21,7 +22,7 @@
         android:layout_margin="15dp"
         android:textColor="#fff" />
 
-    <TextView
+   <!-- <TextView
         android:id="@+id/washcar_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -33,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
-        android:textColor="#fff" />
+        android:textColor="#fff" />-->
 
 
 </LinearLayout>

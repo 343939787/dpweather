@@ -12,95 +12,55 @@ public class Weather {
 
     public String status;
     public Basic basic;
-    public Aqi aqi;
+    public Update update;
     public Now now;
-    public Suggestion suggestion;
+
+    @SerializedName("lifestyle")
+    public List<Lifestyle> lifestyleList;
+
     @SerializedName("daily_forecast")
-    public List<Forecast> forecasties;
+    public List<DailyForecast> forecasties;
 
     public class Basic {
-        @SerializedName("city")
+        @SerializedName("location")
         public String cityName;
 
-        @SerializedName("id")
+        @SerializedName("cid")
         public String weatherId;
-
-        public Update update;
-
-        public class Update {
-            @SerializedName("loc")
-            public String updataTime;
-        }
     }
 
-    public class Aqi {
-
-        public City city;
-
-        public class City{
-            public String aqi;
-            public String pm25;
-        }
+    public class Update {
+        @SerializedName("loc")
+        public String updataTime;
     }
 
     public class Now {
         @SerializedName("tmp")
         public String temperature;
 
-        public Cond cond;
-
-        public class Cond {
-            @SerializedName("txt")
-            public String info;
-        }
+        @SerializedName("cond_txt")
+        public String info;
     }
 
-    public class Suggestion {
+    public class Lifestyle {
 
-        @SerializedName("comf")
-        public Comfort comfort;
+        public String brf;
+        public String txt;
 
-        public class Comfort {
-
-            @SerializedName("txt")
-            public String info;
-        }
-
-        @SerializedName("cw")
-        public CarWash carwash;
-
-        public class CarWash {
-            @SerializedName("txt")
-            public String info;
-        }
-
-        public Sport sport;
-
-        public class Sport {
-            @SerializedName("txt")
-            public String info;
-        }
     }
 
-    public class Forecast {
+    public class DailyForecast {
 
         public String date;
 
-        public Cond cond;
+        @SerializedName("cond_txt_d")
+        public String weatherInfo;
 
-        public class Cond {
-            @SerializedName("txt_d")
-            public String info;
-        }
-
-        @SerializedName("tmp")
-        public temperature temperature;
-
-        public class temperature {
-            public String max;
-            public String min;
-        }
+        public String tmp_max;
+        public String tmp_min;
 
     }
 }
+
+
 

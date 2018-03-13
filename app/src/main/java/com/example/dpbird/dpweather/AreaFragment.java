@@ -80,9 +80,9 @@ public class AreaFragment extends Fragment{
                     selectedCity = cityList.get(position);
                     queryCounty();
                 } else if (level == LEVEL_CONUTY) {
-                    String weatherId = countyList.get(position).getWeatherId();
-                    Intent intent = new Intent(getActivity(), WeatherActivity.class);
-                    intent.putExtra("weather_id", weatherId);
+                    String locations = countyList.get(position).getCountyName();
+                    Intent intent = new Intent(getActivity(), WeatherActivity2.class);
+                    intent.putExtra("location", locations);
                     startActivity(intent);
                     getActivity().finish();
                 }
