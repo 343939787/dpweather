@@ -81,10 +81,17 @@ public class AreaFragment extends Fragment{
                     queryCounty();
                 } else if (level == LEVEL_CONUTY) {
                     String locations = countyList.get(position).getCountyName();
-                    Intent intent = new Intent(getActivity(), WeatherActivity2.class);
-                    intent.putExtra("location", locations);
-                    startActivity(intent);
-                    getActivity().finish();
+                    if (getActivity() instanceof MainActivity) {
+                        Intent intent = new Intent(getActivity(), WeatherActivity2.class);
+                        intent.putExtra("location", locations);
+                        startActivity(intent);
+                        getActivity().finish();
+                    } else if (getActivity() instanceof WeatherActivity2) {
+                        WeatherActivity2 weatherActivity2 = (WeatherActivity2) getActivity();
+                        weatherActivity2.drawerLayout.closeDrawers();
+                        weatherActivity2.swipeRefresh.setRefreshing(true);
+                        weatherActivity2.requestWeather(locations);
+                    }
                 }
             }
         });
